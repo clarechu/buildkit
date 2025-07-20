@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/base64"
 	"encoding/json"
-	"fmt"
 	"io"
 	"maps"
 	"os"
@@ -282,7 +281,7 @@ func (c *Client) solve(ctx context.Context, def *llb.Definition, runGateway runG
 			Internal:                opt.Internal,
 			SourcePolicy:            opt.SourcePolicy,
 		})
-		fmt.Printf("响应错误 打印: resp: %+v\n", resp)
+		bklog.G(ctx).Debugf("响应错误 打印: resp: %+v\n", resp)
 		if err != nil {
 			return errors.Wrap(err, "failed to solve")
 		}
